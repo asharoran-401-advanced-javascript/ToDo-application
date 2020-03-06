@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/asharoran-401-advanced-javascript/ToDo-application/issues"
   },
-  "homepage": "https://github.com/asharoran-401-advanced-javascript/ToDo-application",
+  "homepage": "/",
   "dependencies": {
     "node-sass": "^4.13.1",
     "react": "^16.13.0",
