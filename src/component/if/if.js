@@ -9,8 +9,8 @@ const render = (condition = false , childern = null) => {
 
 
 export const If = (props) => { // If component  pas it as function
-  React.Children.map(props.children , child => { // big Children is an arr ,I need to looping through on it have (props.children- arr too --) as element and childe as index
-    React.cloneElement(child , { condition: props.condition}); // clone the element have two proprety (child -- index) and object that have condition
+  return React.Children.map(props.children , child => { // big Children is an arr ,I need to looping through on it have (props.children- arr too --) as element and childe as index
+    return React.cloneElement(child , { condition: props.condition}); // clone the element have two proprety (child -- index) and object that have condition
   });
 };
 

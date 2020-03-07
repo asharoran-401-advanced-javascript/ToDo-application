@@ -2,14 +2,19 @@
 // eslint-disable-next-line strict
 'use strict';
 
-import React , {useEffect , useState} from 'react';
+import React , {useEffect , useState, useContext } from 'react';
 import uuid from 'uuid/v4';
-import { When } from '../if/if.js';
+import { When , If , Then , Else } from '../if/if.js';
 import Modal from '../model/model.js';
 import '../mainToDo/main.scss';
+import  SettingsContext  from '../../context/setting.js';
 
 const ToDo = props => {
-//   //----------------------------------Hooks ----------------------------------------//
+
+  let settingContext = useContext(SettingsContext);
+
+  // because we use finction here because that we use (useContext)
+  //   //----------------------------------Hooks ----------------------------------------//
   const [todoList , setTodoList] = useState([]); // arr
   const [item , setItem] = useState({}); // i pass is as a object beause it's easy to use object proparty
   const [details , setDetails] = useState({}); //because each item have details
@@ -19,6 +24,12 @@ const ToDo = props => {
     let complete = todoList.filter(item => !item.complete).length; // true
     let incomplete = todoList.filter(item => item.complete).length; // false
     document.title = `ToDo:${complete} Done:${incomplete}`;
+
+    // if(!settingContext.displayCompleted){
+    //   return settingContext.displayCompleted(todoList.length);
+    // }else{
+    //   return settingContext.displayCompleted(todoList.length - complete);
+    // }
   });
 
   const handleInputChange = e => { // make a copy of each item and add a new property with value to it
@@ -62,6 +73,12 @@ const ToDo = props => {
     setShowDetails(showDetailsState);
   };
 
+  const toggleHideComleted = e => {
+    if(e.target.name === 'hideCompleteButton'){
+      settingContext.setDisplayCompleted(true);
+    }
+  };
+
   return (
     <>
       <section className="todo">
@@ -102,6 +119,24 @@ const ToDo = props => {
               </li>
             ))}
           </ul>
+        </div>
+        <div>
+          <h2>
+            There are [ {todoList.filter( item => !item.complete).length}
+            ] Item to complete
+          </h2>
+          {/* <If condition={!settingContext}> */}
+          <Then>
+            <button className="display-button" name="hideCompleteButton" onClick={toggleHideComleted}>
+              Display Completed
+            </button>
+          </Then>
+          <Else condition={settingContext}>
+            <button className="display-button" name="hideCompleteButton" onClick={toggleHideComleted}>
+               Display All
+            </button>
+          </Else>
+          {/* </If> */}
         </div>
       </section>
       {/* i need to show the details by condition because that i use if  */}
