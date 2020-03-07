@@ -2,7 +2,7 @@
 // eslint-disable-next-line strict
 'use strict';
 import React , {useEffect , useState, useContext } from 'react';
-import { SettingsContext } from '../context/setting.js';
+import {SettingsContext} from '../context/setting.js';
 import uuid from 'uuid/v4';
 import { When , If , Then , Else } from '../if/if.js';
 import Modal from '../model/model.js';
@@ -12,7 +12,6 @@ import cookie from 'react-cookies';
 import superagent from 'superagent';
 
 const ToDo = props => {
-
   const settingContext = useContext(SettingsContext);
 
   // because we use function here because that we use (useContext)

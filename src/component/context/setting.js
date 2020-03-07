@@ -1,10 +1,12 @@
+/* eslint-disable no-unused-vars */
 // eslint-disable-next-line strict
 'use strict';
 
-import React, { useState } from 'react';
-export const SettingsContext = React.createContext(); // make a global function
+import React from 'react';
+import  { useState } from 'react';
 import cookie from 'react-cookies';
 
+export const SettingsContext = React.createContext(); // make a global function
 const SettingProvider = (props) => {
   const qs = new URLSearchParams(window.location.search); // constratur to create and render url search params as object
   const cookieToken = cookie.load('auth');
