@@ -29,10 +29,10 @@ const ToDo = props => {
     let incomplete = todoList.filter(item => item.complete).length; // false
     document.title = `ToDo:${complete} Done:${incomplete}`;
 
-    // if(!settingContext.displayCompleted){
-    //   return settingContext.displayCompleted(todoList.length);
+    // if(!settingsContext.displayCompleted){
+    //   return settingsContext.displayCompleted(todoList.length);
     // }else{
-    //   return settingContext.displayCompleted(todoList.length - complete);
+    //   return settingsContext.displayCompleted(todoList.length - complete);
     // }
   });
 
@@ -119,11 +119,11 @@ const ToDo = props => {
   return (
     <>
       <section className='login-form'>
-        <If condition={settingsContext}>
+        <If condition={settingsContext.login}>
           <Then>
             <button onClick={logout}>LogOut</button>
           </Then>
-          <Else>
+          <Else condition={settingsContext.logout}>
             <form onSubmit={handleLoginSubmit}>
               <input name='username' placeholder='Enter username' onChange={handleLoginChange}/>
               <input name='password' placeholder='Enter your password please' onChange={handleLoginChange}/>
@@ -182,18 +182,18 @@ const ToDo = props => {
             There are [ {todoList.filter( item => !item.complete).length}
             ] Item to complete
             </h2>
-            {/* <If condition={!settingContext}> */}
-            <Then>
-              <button className="display-button" name="hideCompleteButton" onClick={toggleHideComleted}>
+            <If condition={!settingsContext.setDisplayCompleted}>
+              <Then>
+                <button className="display-button" name="hideCompleteButton" onClick={toggleHideComleted}>
               Display Completed
-              </button>
-            </Then>
-            <Else condition={settingsContext}>
-              <button className="display-button" name="hideCompleteButton" onClick={toggleHideComleted}>
+                </button>
+              </Then>
+              <Else condition={settingsContext.setDisplayCompleted}>
+                <button className="display-button" name="hideCompleteButton" onClick={toggleHideComleted}>
                Display All
-              </button>
-            </Else>
-            {/* </If> */}
+                </button>
+              </Else>
+            </If>
           </div>
         </Auth>
       </section>

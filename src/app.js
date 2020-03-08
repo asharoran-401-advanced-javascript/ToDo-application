@@ -7,13 +7,16 @@ import React from 'react';
 import Header from './component/header/header.js';
 import Footer from './component/footer/footer.js';
 import Main from './component/mainToDo/main.js';
+import SettingsProvider from './context/settings.js';
 
 const App = ()=>{
   return(
     <>
-      <Header/>
-      <Main/>
-      <Footer/>
+      <SettingsProvider>
+        <Header/>
+        <Main/>
+        <Footer/>
+      </SettingsProvider>
     </>
   );
 };
