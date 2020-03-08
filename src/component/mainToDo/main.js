@@ -2,7 +2,7 @@
 // eslint-disable-next-line strict
 'use strict';
 import React , {useEffect , useState, useContext } from 'react';
-import {SettingsContext} from '../context/setting.js';
+import {SettingsContext} from '../../context/settings.js';
 import uuid from 'uuid/v4';
 import { When , If , Then , Else } from '../if/if.js';
 import Modal from '../model/model.js';
@@ -12,7 +12,8 @@ import cookie from 'react-cookies';
 import superagent from 'superagent';
 
 const ToDo = props => {
-  const settingContext = useContext(SettingsContext);
+
+  const settingsContext = useContext(SettingsContext);
 
   // because we use function here because that we use (useContext)
   //   //----------------------------------Hooks ----------------------------------------//
@@ -78,14 +79,14 @@ const ToDo = props => {
 
   const toggleHideComleted = e => {
     if(e.target.name === 'hideCompleteButton'){
-      settingContext.setDisplayCompleted(true);
+      settingsContext.setDisplayCompleted(true);
     }
   };
   const handleLoginSubmit = (e) => { // this method we use it on submit the form of user info so we hite the APi and pass user info on it
     e.preventDefault();
     superagent //use Promise
       .post(`${API}/signin`)
-      .auth(settingContext.username , settingContext.password)
+      .auth(settingsContext.username , settingsContext.password)
       .set('mode' , 'cors')
       .then( result => {
         let token = result.text;
@@ -95,22 +96,22 @@ const ToDo = props => {
   };
   const login = (token) => {
     cookie.save('auth' , token);
-    settingContext.setUserToken(token);
-    settingContext.setLogin(true);
+    settingsContext.setUserToken(token);
+    settingsContext.setLogin(true);
   };
 
   const logout = () => {
     cookie.remove('auth');
-    settingContext.setUserToken();
-    settingContext.setLogin(false);
+    settingsContext.setUserToken();
+    settingsContext.setLogin(false);
   };
 
   const handleLoginChange = (e) => {
     if(e.target.name === 'username'){
-      settingContext.setUsername(e.target.value);
+      settingsContext.setUsername(e.target.value);
     }
     if(e.target.name === 'password'){
-      settingContext.setPassword(e.target.value);
+      settingsContext.setPassword(e.target.value);
     }
   };
 
@@ -118,7 +119,7 @@ const ToDo = props => {
   return (
     <>
       <section className='login-form'>
-        <If condition={settingContext.login}>
+        <If condition={settingsContext}>
           <Then>
             <button onClick={logout}>LogOut</button>
           </Then>
@@ -187,7 +188,7 @@ const ToDo = props => {
               Display Completed
               </button>
             </Then>
-            <Else condition={settingContext}>
+            <Else condition={settingsContext}>
               <button className="display-button" name="hideCompleteButton" onClick={toggleHideComleted}>
                Display All
               </button>

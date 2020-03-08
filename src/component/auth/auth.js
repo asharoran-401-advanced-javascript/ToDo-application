@@ -5,12 +5,12 @@
 // https://auth0.com/blog/handling-authentication-in-react-with-context-and-hooks/
 
 import React , { useContext } from 'react';
-import { SettingContext} from '../context/setting.js';
+import {SettingsContext} from '../../context/settings.js';
 import jwt from 'jsonwebtoken';
 import {If , Then , When , Else} from '../if/if.js';
 
 const Auth = (props) => {
-  const context = useContext(SettingContext); // beacuse we use a function here so we need to use (useContext)
+  const context = useContext(SettingsContext); // beacuse we use a function here so we need to use (useContext)
   let okToRender = false;
   let user = {}; //pass it as object
 
