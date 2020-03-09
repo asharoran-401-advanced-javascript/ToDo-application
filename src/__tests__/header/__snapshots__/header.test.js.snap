@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Footer /> render correctly 1`] = `
+<footer>
+  copy Right by As-har Oran
+</footer>
+`;
+
+exports[`<Header /> render correctly 1`] = `
+<h1>
+  My ToDo Apllication
+</h1>
+`;

@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> render correctly 1`] = `
+<h1>
+  My ToDo Apllication
+</h1>
+`;
+
+exports[`<Main /> render correctly 1`] = `
+<section
+  className="todo"
+>
+  <div>
+    <form
+      onSubmit={[Function]}
+    >
+      <label>
+        <span>
+          ToDo Item :
+        </span>
+        <input
+          name="text"
+          onChange={[Function]}
+          placeholder="Add Item"
+        />
+      </label>
+      <label>
+        <span>
+          Difficulty :
+        </span>
+        <input
+          className="difficulty"
+          defaultValue="3"
+          max="5"
+          min="1"
+          name="difficulty"
+          onChange={[Function]}
+          type="range"
+        />
+      </label>
+      <label>
+        <span>
+          Assigned To :
+        </span>
+        <input
+          name="assignee"
+          onChange={[Function]}
+          placeholder="Assigned To"
+          type="text"
+        />
+      </label>
+      <label>
+        <span>
+          Date :
+        </span>
+        <input
+          name="Time"
+          onChange={[Function]}
+          type="date"
+        />
+      </label>
+      <button
+        className="form-button"
+      >
+        Add Item
+      </button>
+    </form>
+  </div>
+  <div>
+    <ul />
+  </div>
+</section>
+`;
