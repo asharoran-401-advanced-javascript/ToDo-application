@@ -1,0 +1,118 @@
+html{
+    background-color: rgba(0, 0, 0, 0.219);
+    letter-spacing: 1px;
+}
+form{
+    background-color: rgba(0, 0, 0, 0.575);
+    box-shadow: 0px 0px 88px -2px #0000006b;
+    border: transparent;
+    color: white;
+    margin: 1%;
+    padding: 2%;
+}
+
+h3{
+    background-color: #545454;
+    text-align: center;
+    padding: 1%;
+    font-size: 24px;
+    color: white;
+    margin: 1%;
+}
+
+h2{
+    background-color: #545454;
+    padding: 1.5%;
+    color: white;
+    text-align: center;
+    margin: 1%;
+}
+
+input{
+    display: block;
+    margin: 1%;
+    padding: .5%;
+    width: 60%;
+}
+.difficulty{
+    width: 20%;
+}
+span{
+    font-size: 18px;
+    font-family: 'Bitter', serif;
+    margin-left: 1%;
+}
+
+.form-button{
+    padding: 1%;
+    margin: 1%;
+    margin-left: 33pc;
+    width: 12pc;
+    font-size: 20px;
+    font-family: sans-serif;
+    color: white;
+    background-color: #d69317e3;
+    border-radius: 15%;
+}
+ul li {
+    background-color: rgba(0, 0, 0, 0.575);
+    box-shadow: 0px 0px 88px -2px #0000006b;
+    border: transparent;
+    color: white;
+    margin: 0;
+    padding: 2%;
+    list-style-type: none;
+}
+
+ul li button{
+    padding: 1%;
+
+    margin-left: 5pc;
+    width: 12pc;
+    font-size: 20px;
+    font-family: sans-serif;
+    color: white;
+    background-color: #d69317e3;
+    border-radius: 15%;
+}
+.details{
+    background-color: rgba(0, 0, 0, 0.575);
+    box-shadow: 0px 0px 88px -2px #0000006b;
+    border: transparent;
+    color: white;
+    margin: 1%;
+    padding: 2%;
+    list-style-type: none;
+
+}
+
+.details-title{
+    text-align: center;
+    font-size: 28px;
+    text-shadow: orange;
+    box-shadow: 0px 0px 88px -2px #0000006b;
+    border: transparent;
+    padding: 1%;
+    font-family: 'Merriweather', serif;
+}
+.details-title button{
+    float: right;
+    padding: .5%;
+    cursor: pointer;
+}
+
+.details-info span , .item{
+    display: block;
+    text-align: center;
+    box-shadow: 0px 0px 88px -2px #0000006b;
+    border: transparent;
+    font-size: 20px;
+    padding: 1%;
+    margin: 1%;
+    // margin: .5%;
+}
+button:hover{
+    transform: scale(1.05);
+    transition: 900ms;
+    cursor: pointer;
+}
